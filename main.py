@@ -102,13 +102,13 @@ allowed_servers = []
 for x in data["id"].values:
 		allowed_servers += [x]
 
-Version = "v2.1⚙️"
+Version = "v2.2⚙️"
 
 
 limit = "unlimited ✅"
 limit_bool = False
 
-ready = "ready✅️"
+ready = "ready✅"
 
 
 class Bot(commands.Bot):
