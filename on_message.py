@@ -48,14 +48,17 @@ amir_fire = allowed_guilds(3)
 mahdi_designer = allowed_guilds(4)
 madsb10 = allowed_guilds(1)
 ancient_netherite = vip_guilds(5)
+programming_forum = vip_guilds(6)
 
 ad_list = [
 "تو سرور ققنوس مستر جوین شید  https://qoqnus-master.netlify.app/#social_media_nav",
+"تو برنامه‌نویسی کردن به مشکل خوردی؟؟ \n تو کدای ماینکرفت یا اسکرچ چطور؟؟ \n وقتشه تو پروگرمینگ فروم جوین شی\n تا دیگه با باگ ها خداحافظی کنی\n https://discord.gg/VArrJDPvDK"
 ]
 
 Vip = [
 Qoqnus_master.id(),
 ancient_netherite.id(),
+programming_forum.id(),
 ]
 
 
@@ -65,15 +68,17 @@ async def ad_f(msg):
 	for i in Vip:
 		if msg.guild.id == i:
 			return 
-	await msg.channel.send(random.sample(ad_list, 1))
-	await msg.channel.send("تبلیغات ماهی بات 👆👆\n برای غیر فعال کردن به سرور ققنوس مستر مراجعه کنید")
+	await msg.channel.send(random.sample(ad_list, 1)[0])
+	await msg.channel.send("تبلیغات ققنوس بات 👆👆\n برای غیر فعال کردن به سرور ققنوس مستر مراجعه کنید")
 
 
 async def hello(msg):
 	if msg.author.id == madsb10.admin(0):
 		await msg.reply("سلام خاله دینا ❤️🙂")
-	elif msg.author.id == Qoqnus_master.admin(0):
+	elif msg.author.id == Qoqnus_master.admin(0) and msg.guild.id != programming_forum.id():
 		await msg.reply("سلام بابا جونم❤️❤️")
+	elif msg.author.id == Qoqnus_master.admin(0) and msg.guild.id == programming_forum.id():
+		await msg.reply("سلام به ققنوس مستر🔥🔥👋")
 	elif msg.author.id == amir_fire.admin(0):
 		await msg.reply("سلام عمو امیر😊❤️")
 	elif msg.author.id == mahdi_designer.admin(0):
@@ -82,6 +87,8 @@ async def hello(msg):
 		await msg.reply("سلام ف.ایر بات")
 	elif msg.author.id == 1090624303059451924 and msg.guild.id == Qoqnus_master.id(): #ancient netherite
 		await msg.reply("سلام به ندرایت گودرتی🗿🤌")
+	elif msg.author.id == 1090624303059451924 and msg.guild.id == programming_forum.id():
+		await msg.reply("سلام بر برنامه‌نویس گودرتمند باستانی 🔥🔥")
 	else:
 		await msg.reply("سلام کاربر عزیز")
 	await ad_f(msg)
@@ -90,14 +97,18 @@ async def hello(msg):
 async def byef(msg):
 	if msg.author.id == madsb10.admin(0):
 		await msg.reply("باییی خاله دینا ❤️🙂")
-	elif msg.author.id == Qoqnus_master.admin(0):
+	elif msg.author.id == Qoqnus_master.admin(0) and msg.guild.id != programming_forum.id():
 		await msg.reply("بای بابا جونم❤️❤️")
+	elif msg.author.id == Qoqnus_master.admin(0) and msg.guild.id == programming_forum.id():
+		await msg.reply("خداحافظ ققنوس مستر🔥👋")
 	elif msg.author.id == amir_fire.admin(0):
 		await msg.reply("بای عمو امیر😊❤️")
 	elif msg.author.id == mahdi_designer.admin(0):
 		await msg.reply("بایی مهدی❤️❤️")
 	elif msg.author.id == 1090624303059451924 and msg.guild.id == Qoqnus_master.id(): #ancient netherite
 		await msg.reply("بای ندرایت گودرتی 🗿")
+	elif msg.author.id == 1090624303059451924 and msg.guild.id == programming_forum.id():
+		await msg.reply("خداحافظ بر برنامه‌نویسی گودرتمند باستانی 🔥🔥")
 	else:
 		await msg.reply("خداحافظ کاربر عزیز")
 	await ad_f(msg)
@@ -135,7 +146,9 @@ async def anti_url(msg):
 
 async def badwordf(msg):
 		if msg.guild.id == amir_fire.id():
-			return 
+			return
+		elif msg.channel.id == 1107614713791119391: #programming_forum technology-news
+			return
 		else:
 			await msg.delete()
 			await msg.channel.send("<@{0}> لطفا مودب باشید".format(msg.author.id))

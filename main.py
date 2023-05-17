@@ -229,7 +229,7 @@ class Bot(commands.Bot):
 					break
 			if "http://"in message_after.content:
 				await not_secure_url(message_after)
-		
+			
 if __name__ == "__main__":
 	config = json.loads(open("config.json").read())
 	bot = Bot(config)
