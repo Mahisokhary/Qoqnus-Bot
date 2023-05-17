@@ -102,7 +102,7 @@ allowed_servers = []
 for x in data["id"].values:
 		allowed_servers += [x]
 
-Version = "v2.2⚙️"
+Version = "v2.3⚙️"
 
 
 limit = "unlimited ✅"

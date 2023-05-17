@@ -145,9 +145,7 @@ async def anti_url(msg):
 
 
 async def badwordf(msg):
-		if msg.guild.id == amir_fire.id():
-			return
-		elif msg.channel.id == 1107614713791119391: #programming_forum technology-news
+		if msg.channel.id == 1107614713791119391: #programming_forum technology-news
 			return
 		else:
 			await msg.delete()
