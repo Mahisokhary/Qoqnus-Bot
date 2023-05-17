@@ -44,25 +44,30 @@ class button(discord.ui.View):
 		else:
 			await ctx.response.send_message("کانفیگ ssh نداریم", ephemeral=True)
 
-	@discord.ui.button(label="other", style=discord.ButtonStyle.green)
+	@discord.ui.button(label="other | دیگر پروتکل ها", style=discord.ButtonStyle.green)
 	async def button3(self, ctx:Interaction, button:discord.ui.Button):
 		if self.other != []:
 			await ctx.response.send_message(files=self.other, ephemeral=True)
 		else:
 			await ctx.response.send_message("کانفیگ other نداریم", ephemeral=True)
 	
-	@discord.ui.button(label="all", style=discord.ButtonStyle.green)
+	@discord.ui.button(label="all | همه", style=discord.ButtonStyle.green)
 	async def button4(self, ctx:Interaction, button:discord.ui.Button):
 		if self.all != []:
 			await ctx.response.send_message(files=self.all, ephemeral=True)
 		else:
 			await ctx.response.send_message("کانفیگ  نداریم", ephemeral=True)
+	
+	@discord.ui.button(label="click me| منو کلیک کن", style=discord.ButtonStyle.danger)
+	async def button5(self, ctx:Interaction, button:discord.ui.Button):
+		await ctx.response.send_message("کانفیگ ها برای این برنامه میباشد: https://apksos.com/app/com.evozi.injector", ephemeral=True)
+		
 
 class vpn(commands.Cog):
 	def __init__(self, bot):
 		self.bot = bot
 	
-	@app_commands.command(name = "vpn", description = "give u a vpn")
+	@app_commands.command(name = "vpn", description = "give u http injector config")
 	async def vpn(self, ctx: Interaction):
 		await ctx.response.send_message("یک پروتوکل انتخاب کنید:",view=button(),ephemeral=True)
 
