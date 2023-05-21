@@ -1,6 +1,7 @@
 import discord
 import qrcode
 import os
+import random
 
 from discord.ext import commands
 from discord import Interaction
@@ -16,9 +17,10 @@ class qr_maker(commands.Cog):
 			await ctx.response.send_message("لطفا جهت ساخت qrcode یک متن وارد کنید")
 		else:
 			img = qrcode.make(text)
-			img.save("qr.png")
-			await ctx.response.send_message(file=discord.File("qr.png"))
-			os.system("rm qr.png")
+			img_name = random.randint(1000,1000000) + ".png"
+			img.save(img_name)
+			await ctx.response.send_message(file=discord.File(img_name))
+			os.system(f"rm {img_name}")
 
 async def setup(bot):
     if bot.config["test-server-id"] == "":
