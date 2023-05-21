@@ -51,8 +51,20 @@ ancient_netherite = vip_guilds(5)
 programming_forum = vip_guilds(6)
 
 ad_list = [
-"تو سرور ققنوس مستر جوین شید  https://qoqnus-master.netlify.app/#social_media_nav",
-"تو برنامه‌نویسی کردن به مشکل خوردی؟؟ \n تو کدای ماینکرفت یا اسکرچ چطور؟؟ \n وقتشه تو پروگرمینگ فروم جوین شی\n تا دیگه با باگ ها خداحافظی کنی\n https://discord.gg/VArrJDPvDK"
+	[
+		"『𝗣𝗿𝗼𝗴𝗿𝗮𝗺𝗺𝗶𝗻𝗴 𝗙𝗼𝗿𝘂𝗺』",
+		"\n",
+		"\n"
+		"╗ 🧑‍💻  دارای فروم برای رفع باگ های کداتون تو هر زبان برنامه‌نویسی 🔥",
+		"╣  📰  اخبار به روز تکنولوژی 🔥",
+		"╣ 🎮  رفع مشکل تو کد زدن تو ماینکرفت یا مود سازی تو ماینکرفت 🔥",
+		"╣ 💻 کد های متن باز **جذاااااب** 🔥",
+		"╝ 🌐 فیلترشکن نابییی همیشه وصل 🔥",
+		"\n",
+		"پس منتظر چی نشستی 😐",
+		"👇 زود تر جوین شو 👇",
+		"〘 https://discord.gg/VArrJDPvDK 〙",
+	],
 ]
 
 Vip = [
@@ -67,9 +79,13 @@ async def ad_f(msg):
 	global Vip
 	for i in Vip:
 		if msg.guild.id == i:
-			return 
-	await msg.channel.send(random.sample(ad_list, 1)[0])
-	await msg.channel.send("تبلیغات ققنوس بات 👆👆\n برای غیر فعال کردن به سرور ققنوس مستر مراجعه کنید")
+			return
+	ad = random.sample(ad_list, 1)[0]
+	ad2 = ""
+	for i in ad:
+		ad2 += i
+		ad2 += "\n"
+	await msg.channel.send(ad2 + "\n" + "تبلیغات ققنوس بات 👆👆\n برای غیر فعال کردن به سرور ققنوس مستر مراجعه کنید https://Qoqnus-master.netlify.app")
 
 
 async def hello(msg):
@@ -80,7 +96,7 @@ async def hello(msg):
 	elif msg.author.id == Qoqnus_master.admin(0) and msg.guild.id == programming_forum.id():
 		await msg.reply("سلام به ققنوس مستر🔥🔥👋")
 	elif msg.author.id == amir_fire.admin(0):
-		await msg.reply("سلام عمو امیر😊❤️")
+		await msg.reply("سلام امیر😊❤️")
 	elif msg.author.id == mahdi_designer.admin(0):
 		await msg.reply("سلام مهدی جون❤️❤️")
 	elif msg.author.id == 1089845349436375040: #fire bot
@@ -102,7 +118,7 @@ async def byef(msg):
 	elif msg.author.id == Qoqnus_master.admin(0) and msg.guild.id == programming_forum.id():
 		await msg.reply("خداحافظ ققنوس مستر🔥👋")
 	elif msg.author.id == amir_fire.admin(0):
-		await msg.reply("بای عمو امیر😊❤️")
+		await msg.reply("بای امیر😊❤️")
 	elif msg.author.id == mahdi_designer.admin(0):
 		await msg.reply("بایی مهدی❤️❤️")
 	elif msg.author.id == 1090624303059451924 and msg.guild.id == Qoqnus_master.id(): #ancient netherite
@@ -145,7 +161,9 @@ async def anti_url(msg):
 
 
 async def badwordf(msg):
-		if msg.channel.id == 1107614713791119391: #programming_forum technology-news
+		if False:
+			return
+		elif msg.channel.id == 1107614713791119391: #programming_forum technology-news
 			return
 		else:
 			await msg.delete()

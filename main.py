@@ -186,10 +186,6 @@ class Bot(commands.Bot):
 						no_react = [
 							ancient_netherite.id()
 						]
-						if message.guild.id in no_react:
-							no_react = no_react
-						else:
-							await message.add_reaction("👀")
 						for i in badword:
 							if i.lower() in message.content.lower():
 								await badwordf(message)
@@ -223,12 +219,8 @@ class Bot(commands.Bot):
 							return
 		
 	async def on_message_edit(self, message_before, message_after):
-			for i in badword:
-				if i in message_after.content:
-					await badwordf(message_after)
-					break
-			if "http://"in message_after.content:
-				await not_secure_url(message_after)
+			await self.on_message(message_after)
+			return 
 			
 if __name__ == "__main__":
 	config = json.loads(open("config.json").read())
